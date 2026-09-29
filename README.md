@@ -1,4 +1,4 @@
-# multimodal-chinese-speech-analysis
+# multimodal chinese speech analysis
 An end-to-end computational pipeline for multimodal analysis of spontaneous Chinese speech, integrating automatic speech recognition, prosodic analysis, co-speech gesture processing, temporal alignment, and exploratory speech–gesture coordination analysis.
 
 This repository contains computational work developed as part of my Master's research in Computational Linguistics at Saint Petersburg State University.
