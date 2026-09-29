@@ -20,28 +20,32 @@ Pragmatic and discourse functions
 
 The central research idea is to move beyond speech as a purely textual or acoustic signal and investigate how linguistic, prosodic, and visual information jointly contribute to meaning in spontaneous communication.
 
-Research Pipeline
+## Research Pipeline
 
 The current computational pipeline follows this workflow:
 
+```mermaid
 flowchart TD
-    A[Video] --> B[Audio]
-    A --> C[Visual]
+    video[Video]
 
-    B --> D[Speech Recognition]
-    D --> E[Speech Segmentation]
-    E --> F[Prosodic Features]
+    video --> audio[Audio]
+    video --> visual[Visual]
 
-    C --> G[Hand / Gesture Analysis]
-    G --> H[Gesture Event Detection]
-    H --> I[Gesture Features]
+    audio --> asr[Speech Recognition]
+    asr --> speech_segments[Speech Segmentation]
+    speech_segments --> prosody[Prosodic Features]
 
-    F --> J[Temporal Alignment]
-    I --> J
+    visual --> gesture_analysis[Hand / Gesture Analysis]
+    gesture_analysis --> gesture_events[Gesture Event Detection]
+    gesture_events --> gesture_features[Gesture Features]
 
-    J --> K[Aligned Multimodal Features]
-    K --> L[Temporal Coordination Analysis]
-    L --> M[Pragmatic / Discourse Analysis]
+    prosody --> alignment[Temporal Alignment]
+    gesture_features --> alignment
+
+    alignment --> multimodal[Aligned Multimodal Features]
+    multimodal --> coordination[Temporal Coordination Analysis]
+    coordination --> pragmatic[Pragmatic / Discourse Analysis]
+```
 
 The pipeline integrates speech, prosodic, and visual information on a shared temporal axis, providing a computational basis for multimodal analysis of spontaneous communication.
 
