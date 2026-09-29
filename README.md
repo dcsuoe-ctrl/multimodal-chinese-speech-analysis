@@ -198,22 +198,30 @@ multimodal-chinese-speech-analysis/
 
 The project is currently under development.
 
-The current end-to-end prototype provides a working pipeline for:
+The current end-to-end prototype provides a working pipeline for spontaneous Chinese speech analysis:
 
-```text
-Video
-  ↓
-Chinese ASR
-  ↓
-Prosodic feature extraction
-  ↓
-Wrist movement extraction
-  ↓
-Temporal alignment
-  ↓
-Multimodal feature dataset
-  ↓
-Exploratory temporal coordination analysis
+```mermaid
+flowchart TD
+    video[Video]
+    video --> asr[Chinese ASR]
+    asr --> prosody[Prosodic Feature Extraction]
+    prosody --> gesture[Wrist Movement Extraction]
+    gesture --> alignment[Temporal Alignment]
+    alignment --> dataset[Multimodal Feature Dataset]
+    dataset --> analysis[Exploratory Temporal Coordination Analysis]
+```
+
+The current proof-of-concept has been tested on one spontaneous Chinese speech video and demonstrates:
+
+* 1,846 video frames at 30 FPS
+* 124 prosodic temporal windows
+* 10 ASR segments
+* 17 aligned multimodal features
+* exploratory F0–gesture lag analysis
+* event-based temporal matching
+
+The current implementation is intended to validate the computational pipeline before scaling the analysis to a larger multimodal dataset.
+
 ```
 
 The current proof-of-concept has been tested on one spontaneous Chinese speech video and demonstrates:
