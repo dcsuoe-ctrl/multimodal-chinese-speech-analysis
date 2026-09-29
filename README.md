@@ -90,25 +90,25 @@ The current prototype includes exploratory visualization of multimodal temporal 
 
 Shows the temporal variation of F0, intensity, and wrist movement on a shared timeline.
 
-![Temporal Profile](docs/figures/temporal_profile.png)
+<img width="1389" height="490" alt="image" src="https://github.com/user-attachments/assets/13ca3303-eda2-433e-80a3-f376c6979c37" />
 
 ### 2. F0–Gesture Lag Profile
 
 Shows the lagged relationship between F0 and wrist movement across different temporal offsets.
 
-![F0–Gesture Lag Profile](docs/figures/f0_wrist_lag.png)
+<img width="1189" height="490" alt="image" src="https://github.com/user-attachments/assets/048c2493-1af3-46cd-bf11-c564764c9c7d" />
 
 ### 3. Event-Level Lag Distribution
 
 Shows the distribution of temporal differences between matched F0 and wrist movement events.
 
-![Event-Level Lag Distribution](docs/figures/event_lag_distribution.png)
+<img width="989" height="490" alt="image" src="https://github.com/user-attachments/assets/3418b96b-d134-4cef-bdb3-3ef5f076d55d" />
 
 ### 4. Event-Based Temporal Matching
 
 Shows one-to-one matching between detected F0 and wrist movement events.
 
-![Event-Based Temporal Matching](docs/figures/event_matching.png)
+<img width="1389" height="590" alt="image" src="https://github.com/user-attachments/assets/5bfa74ab-9e32-44a3-9ff4-9ae976bf2729" />
 
 These results are exploratory and are based on a single spontaneous Chinese speech video. They are intended to demonstrate the analytical workflow rather than establish generalizable statistical effects.
 
