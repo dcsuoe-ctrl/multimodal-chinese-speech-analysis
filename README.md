@@ -1,24 +1,36 @@
 # multimodal-chinese-speech-analysis
-Computational pipeline for multimodal analysis of spontaneous Chinese speech, integrating speech, prosody, co-speech gestures, and temporal alignment.
-This repository contains the computational work developed as part of my Master's research in Computational Linguistics at Saint Petersburg State University.
+An end-to-end computational pipeline for multimodal analysis of spontaneous Chinese speech, integrating automatic speech recognition, prosodic analysis, co-speech gesture processing, temporal alignment, and exploratory speech–gesture coordination analysis.
 
-The project investigates spontaneous spoken Chinese from a multimodal perspective, integrating speech content, prosody, and co-speech gestures to study how different communicative signals interact over time and contribute to linguistic, pragmatic, and discourse-level interpretation.
+This repository contains computational work developed as part of my Master's research in Computational Linguistics at Saint Petersburg State University.
 
-The repository is a work in progress and will be continuously updated as the research develops.
+The project investigates spontaneous spoken Chinese from a multimodal perspective, combining linguistic content, prosodic signals, and co-speech gestures to study how communicative information is distributed across modalities and coordinated over time.
 
-Research Focus:
+The repository is an ongoing research project. The current implementation provides a working proof-of-concept pipeline, while subsequent stages will extend the analysis to manually annotated multimodal data and learned representations.
 
-The project currently focuses on:
+## Research Focus
 
-Spontaneous Chinese speech
-Speech and language processing
-Prosodic analysis
-Co-speech gesture analysis
-Temporal coordination between speech and gesture
-Multimodal representation learning
-Pragmatic and discourse functions
+### Current Focus
 
-The central research idea is to move beyond speech as a purely textual or acoustic signal and investigate how linguistic, prosodic, and visual information jointly contribute to meaning in spontaneous communication.
+The current research focuses on:
+
+* spontaneous Chinese speech
+* speech and language processing
+* prosodic analysis
+* co-speech gesture analysis
+* speech–gesture temporal coordination
+* multimodal speech representation
+
+### Longer-Term Directions
+
+The broader research agenda includes:
+
+* linguistically motivated gesture annotation and classification
+* multimodal representation learning
+* pragmatic and discourse analysis
+* integration of linguistic structure with acoustic and visual signals
+
+The central research goal is to move beyond treating speech as a purely textual or acoustic signal and investigate how linguistic, prosodic, and visual information jointly contribute to meaning in spontaneous communication.
+
 
 ## Research Pipeline
 
