@@ -231,12 +231,7 @@ multimodal-chinese-speech-analysis/
 │   └── 01_end_to_end_demo.ipynb
 │
 ├── docs/
-│   ├── annotation_scheme.md
-│   └── figures/
-│       ├── temporal_profile.png
-│       ├── f0_wrist_lag.png
-│       ├── event_lag_distribution.png
-│       └── event_matching.png
+│   └── annotation_scheme.md
 │
 ├── requirements.txt
 ├── README.md
