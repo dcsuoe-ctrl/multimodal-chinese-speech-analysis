@@ -58,105 +58,111 @@ The pipeline integrates speech, prosodic, and visual information on a shared tem
 
 
 
-Computational Components
-1. Speech Processing
+## Computational Components
 
-The speech component includes:
+### 1. Speech Processing
 
-Chinese automatic speech recognition
-speech segmentation
-transcript processing
-temporal alignment of speech segments
+The speech component currently includes:
 
-Current experiments use Whisper-based automatic transcription.
+* Chinese automatic speech recognition
+* speech segmentation
+* transcript processing
+* temporal alignment of speech segments
 
-2. Prosodic Analysis
+The current prototype uses Whisper-based automatic transcription.
 
-The project extracts acoustic features including:
+### 2. Prosodic Analysis
 
-fundamental frequency (F0)
-intensity
-duration
-variability of prosodic measures
+The current prototype extracts acoustic features including:
 
-These features are analyzed at the level of speech segments and in relation to visual signals.
+* fundamental frequency (F0)
+* intensity
+* segment-level variability of prosodic measures
 
-3. Gesture Analysis
+Prosodic features are extracted over short temporal windows and aggregated for aligned speech segments.
 
-The visual component focuses on co-speech hand gestures.
+### 3. Gesture Analysis
+
+The visual component focuses on co-speech hand movement.
 
 Current computational experiments include:
 
-hand landmark detection
-hand movement tracking
-gesture event segmentation
-preliminary gesture identification and classification
-temporal alignment between gestures and speech
+* hand landmark detection
+* wrist movement tracking
+* movement-based gesture event detection
+* temporal alignment between gesture movement and speech
 
-The current gesture classification is a prototype. Linguistically motivated gesture categories and manually annotated data will be used for subsequent research stages.
+The current gesture component is a prototype based on movement features. Linguistically motivated gesture categories, manual annotation, and supervised gesture classification are planned for later stages.
 
-4. Multimodal Alignment
+### 4. Multimodal Alignment
 
-A central part of the project is the temporal integration of different modalities.
+A central component of the project is the temporal integration of speech, prosodic, and visual information.
 
-For each speech segment, the system can combine:
+The current prototype aligns:
 
-transcript
-speech duration
-prosodic features
-gesture occurrence
-gesture duration
-gesture type
-speech–gesture temporal overlap
+* speech transcripts
+* speech timestamps
+* F0 features
+* intensity features
+* wrist movement features
+* speech–gesture temporal relationships
 
-This provides a basis for studying how multimodal signals coordinate during spontaneous communication.
+This provides a basis for exploratory analysis of how multimodal signals coordinate over time.
 
-Research Data:
+## Research Data
 
-The research is based on spontaneous spoken Chinese data, including audiovisual recordings suitable for multimodal analysis.
+The research focuses on spontaneous spoken Chinese and audiovisual data suitable for multimodal analysis.
 
-Because the data may contain personally identifiable information and human-subject recordings, raw participant video and audio are not included in this public repository.
+The current public demonstration uses one spontaneous Chinese speech video to validate the end-to-end processing pipeline.
 
-Only code, documentation, synthetic examples, and/or appropriately shareable demonstration materials are intended for public release.
+Raw participant audio and video are not included in the public repository because the underlying recordings may contain personally identifiable information and human-subject data.
 
-Tools and Technologies:
+Publicly shareable materials are limited to code, documentation, derived non-sensitive examples, and other appropriate demonstration materials.
 
-The project currently uses:
+## Tools and Technologies
 
-Programming & Data Analysis
+### Current Prototype
 
-Python
-NumPy
-Pandas
-Scikit-learn
+#### Programming and Data Analysis
 
-Speech & Language Processing
+* Python
+* NumPy
+* Pandas
+* SciPy
+* Scikit-learn
 
-Whisper
-Hugging Face Transformers
-Universal Dependencies
-Stanza / UDPipe
+#### Speech and Audio Processing
 
-Audio & Prosody
+* Whisper
+* Praat
+* Librosa
 
-Praat
-Librosa
+#### Visual Processing
 
-Visual / Multimodal Processing
+* MediaPipe
+* OpenCV
 
-MediaPipe
-OpenCV
-Vision Transformers
-CLIP
+#### Deep Learning
 
-Annotation
+* PyTorch
 
-ELAN
+### Research Extensions
 
-Deep Learning
+The broader research workflow may additionally involve:
 
-PyTorch
-Repository Structure
+* Hugging Face Transformers
+* Universal Dependencies
+* Stanza
+* UDPipe
+* ELAN
+* CLIP
+* Vision Transformers
+
+These tools support subsequent work on linguistic structure, annotation, multimodal representation learning, and probing.
+
+## Repository Structure
+
+```text
 multimodal-chinese-speech-analysis/
 │
 ├── src/
@@ -181,41 +187,62 @@ multimodal-chinese-speech-analysis/
 ├── requirements.txt
 ├── run_pipeline.py
 └── README.md
-Current Status
+```
+
+## Current Status
 
 The project is currently under development.
 
-The existing implementation provides a working prototype for:
+The current end-to-end prototype provides a working pipeline for:
 
+```text
 Video
-→ Chinese ASR
-→ Prosodic feature extraction
-→ Hand tracking
-→ Preliminary gesture analysis
-→ Speech–gesture temporal alignment
+  ↓
+Chinese ASR
+  ↓
+Prosodic feature extraction
+  ↓
+Wrist movement extraction
+  ↓
+Temporal alignment
+  ↓
+Multimodal feature dataset
+  ↓
+Exploratory temporal coordination analysis
+```
 
-The research is gradually moving from rule-based and exploratory processing toward manually annotated multimodal data, supervised classification, and multimodal representation learning.
+The current proof-of-concept has been tested on one spontaneous Chinese speech video and demonstrates:
 
-Planned Research Directions
+* 1,846 video frames at 30 FPS
+* 124 prosodic temporal windows
+* 10 ASR segments
+* 17 aligned multimodal features
+* exploratory F0–gesture lag analysis
+* event-based temporal matching
+
+The current implementation is intended to validate the computational pipeline before scaling the analysis to a larger multimodal dataset.
+
+## Planned Research Directions
 
 Future development will focus on:
 
-improving the annotation scheme for co-speech gestures;
-building a manually annotated multimodal dataset;
-training supervised gesture classification models;
-investigating speech–gesture temporal coordination;
-integrating linguistic structure with acoustic and visual signals;
-studying pragmatic and discourse functions in spontaneous speech;
-exploring multimodal representation learning and probing methods.
-Research Motivation
+* developing a linguistically motivated annotation scheme for co-speech gestures
+* building a manually annotated multimodal dataset
+* improving gesture event segmentation and classification
+* investigating speech–gesture temporal coordination at multiple timescales
+* integrating linguistic structure with acoustic and visual signals
+* studying pragmatic and discourse functions in spontaneous speech
+* exploring multimodal representation learning and probing methods
+
+## Research Motivation
 
 Spontaneous communication is inherently multimodal. Speakers coordinate lexical, syntactic, prosodic, and visual signals rather than producing language through speech alone.
 
-This project therefore treats speech, prosody, and gesture as complementary sources of communicative information and investigates how they can be represented and analyzed computationally.
+This project therefore treats speech, prosody, and gesture as complementary sources of communicative information and investigates how these signals can be represented and analyzed computationally.
 
-The broader goal is to develop computational approaches for understanding multimodal meaning and pragmatic information in natural communication.
+The broader research goal is to develop computational approaches for understanding multimodal meaning and pragmatic information in natural communication.
 
-About
+## About
 
 Xuanyu Zhang
 M.S. Computational Linguistics
@@ -225,6 +252,6 @@ Research interests:
 
 Computational Linguistics · Multimodal NLP · Speech Processing · Gesture Analysis · Pragmatics · Multimodal Representation Learning
 
-Note
+## Note
 
-This repository represents ongoing academic research. Some components are experimental prototypes and may change as the research methodology and annotation framework develop.
+This repository represents ongoing academic research. Some components are experimental prototypes and may change as the research methodology, annotation framework, and modeling strategy develop.
