@@ -1,4 +1,5 @@
-# multimodal chinese speech analysis
+# multimodal-chinese-speech-analysis
+
 An end-to-end computational pipeline for multimodal analysis of spontaneous Chinese speech, integrating automatic speech recognition, prosodic analysis, co-speech gesture processing, temporal alignment, and exploratory speech–gesture coordination analysis.
 
 This repository contains computational work developed as part of my Master's research in Computational Linguistics at Saint Petersburg State University.
@@ -31,6 +32,26 @@ The broader research agenda includes:
 
 The central research goal is to move beyond treating speech as a purely textual or acoustic signal and investigate how linguistic, prosodic, and visual information jointly contribute to meaning in spontaneous communication.
 
+## Current Demonstration
+
+The current end-to-end prototype has been tested on one spontaneous Chinese speech video.
+
+It demonstrates the extraction and temporal integration of three main modalities:
+
+* speech content
+* prosodic information
+* co-speech hand movement
+
+The current proof-of-concept contains:
+
+* 1,846 video frames at 30 FPS
+* 124 prosodic temporal windows
+* 10 ASR segments
+* 17 aligned multimodal features
+* exploratory F0–gesture lag analysis
+* event-based temporal matching
+
+The current analysis is exploratory and is intended to validate the computational pipeline before scaling the analysis to a larger multimodal dataset.
 
 ## Research Pipeline
 
@@ -59,16 +80,37 @@ flowchart TD
     coordination --> pragmatic[Pragmatic / Discourse Analysis]
 ```
 
-The pipeline integrates speech, prosodic, and visual information on a shared temporal axis, providing a computational basis for multimodal analysis of spontaneous communication.
+The pipeline integrates speech, prosodic, and visual information on a shared temporal axis.
 
-## Current Demonstration
+## Results
 
-<img width="1389" height="490" alt="image" src="https://github.com/user-attachments/assets/641188e8-f173-43f7-a0af-02e1817ae4e3" />
-<img width="1189" height="490" alt="image" src="https://github.com/user-attachments/assets/fdf09c62-adc1-4f45-a5b2-d4e97686b902" />
-<img width="989" height="490" alt="image" src="https://github.com/user-attachments/assets/47de86b3-6259-4f4d-b284-719ae5c33c0d" />
-<img width="1389" height="590" alt="image" src="https://github.com/user-attachments/assets/701c9c2d-d61f-414c-b2fd-51ed953195cd" />
+The current prototype includes exploratory visualization of multimodal temporal patterns.
 
+### 1. Temporal Profile
 
+Shows the temporal variation of F0, intensity, and wrist movement on a shared timeline.
+
+![Temporal Profile](docs/figures/temporal_profile.png)
+
+### 2. F0–Gesture Lag Profile
+
+Shows the lagged relationship between F0 and wrist movement across different temporal offsets.
+
+![F0–Gesture Lag Profile](docs/figures/f0_wrist_lag.png)
+
+### 3. Event-Level Lag Distribution
+
+Shows the distribution of temporal differences between matched F0 and wrist movement events.
+
+![Event-Level Lag Distribution](docs/figures/event_lag_distribution.png)
+
+### 4. Event-Based Temporal Matching
+
+Shows one-to-one matching between detected F0 and wrist movement events.
+
+![Event-Based Temporal Matching](docs/figures/event_matching.png)
+
+These results are exploratory and are based on a single spontaneous Chinese speech video. They are intended to demonstrate the analytical workflow rather than establish generalizable statistical effects.
 
 ## Computational Components
 
@@ -121,16 +163,6 @@ The current prototype aligns:
 
 This provides a basis for exploratory analysis of how multimodal signals coordinate over time.
 
-## Research Data
-
-The research focuses on spontaneous spoken Chinese and audiovisual data suitable for multimodal analysis.
-
-The current public demonstration uses one spontaneous Chinese speech video to validate the end-to-end processing pipeline.
-
-Raw participant audio and video are not included in the public repository because the underlying recordings may contain personally identifiable information and human-subject data.
-
-Publicly shareable materials are limited to code, documentation, derived non-sensitive examples, and other appropriate demonstration materials.
-
 ## Tools and Technologies
 
 ### Current Prototype
@@ -142,6 +174,7 @@ Publicly shareable materials are limited to code, documentation, derived non-sen
 * Pandas
 * SciPy
 * Scikit-learn
+* Matplotlib
 
 #### Speech and Audio Processing
 
@@ -172,6 +205,16 @@ The broader research workflow may additionally involve:
 
 These tools support subsequent work on linguistic structure, annotation, multimodal representation learning, and probing.
 
+## Research Data
+
+The research focuses on spontaneous spoken Chinese and audiovisual data suitable for multimodal analysis.
+
+The current public demonstration uses one spontaneous Chinese speech video to validate the end-to-end processing pipeline.
+
+Raw participant audio and video are not included in the public repository because the underlying recordings may contain personally identifiable information and human-subject data.
+
+Publicly shareable materials are limited to code, documentation, derived non-sensitive examples, and other appropriate demonstration materials.
+
 ## Repository Structure
 
 ```text
@@ -188,64 +231,58 @@ multimodal-chinese-speech-analysis/
 │   └── 01_end_to_end_demo.ipynb
 │
 ├── docs/
-│   └── annotation_scheme.md
+│   ├── annotation_scheme.md
+│   └── figures/
+│       ├── temporal_profile.png
+│       ├── f0_wrist_lag.png
+│       ├── event_lag_distribution.png
+│       └── event_matching.png
 │
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+```
 
 ## Current Status
 
-The project is currently under development.
+The current end-to-end prototype provides a working computational workflow from raw audiovisual input to exploratory multimodal analysis.
 
-The current end-to-end prototype provides a working pipeline for spontaneous Chinese speech analysis:
+Implemented components include:
 
-```mermaid
-flowchart TD
-    video[Video]
-    video --> asr[Chinese ASR]
-    asr --> prosody[Prosodic Feature Extraction]
-    prosody --> gesture[Wrist Movement Extraction]
-    gesture --> alignment[Temporal Alignment]
-    alignment --> dataset[Multimodal Feature Dataset]
-    dataset --> analysis[Exploratory Temporal Coordination Analysis]
-```
+* Chinese ASR
+* prosodic feature extraction
+* wrist movement extraction
+* temporal alignment
+* multimodal feature construction
+* data quality checks
+* feature normalization
+* exploratory temporal coordination analysis
+* event-based speech–gesture matching
+* multimodal visualization
 
-The current proof-of-concept has been tested on one spontaneous Chinese speech video and demonstrates:
+The current implementation is a proof-of-concept and is being used to validate the computational methodology before larger-scale dataset construction and modeling.
 
-* 1,846 video frames at 30 FPS
-* 124 prosodic temporal windows
-* 10 ASR segments
-* 17 aligned multimodal features
-* exploratory F0–gesture lag analysis
-* event-based temporal matching
+## Limitations and Next Steps
 
-The current implementation is intended to validate the computational pipeline before scaling the analysis to a larger multimodal dataset.
+The current demonstration is based on a single spontaneous Chinese speech video. The temporal coordination analyses are therefore exploratory and should not be interpreted as evidence of generalizable effects.
 
-```
+The next stages of the project will focus on:
 
-The current proof-of-concept has been tested on one spontaneous Chinese speech video and demonstrates:
-
-* 1,846 video frames at 30 FPS
-* 124 prosodic temporal windows
-* 10 ASR segments
-* 17 aligned multimodal features
-* exploratory F0–gesture lag analysis
-* event-based temporal matching
-
-The current implementation is intended to validate the computational pipeline before scaling the analysis to a larger multimodal dataset.
-
-## Planned Research Directions
-
-Future development will focus on:
-
-* developing a linguistically motivated annotation scheme for co-speech gestures
-* building a manually annotated multimodal dataset
+* expanding the analysis to a larger multimodal dataset
+* developing and validating a linguistically motivated gesture annotation scheme
+* manually annotating gesture units and communicative functions
 * improving gesture event segmentation and classification
-* investigating speech–gesture temporal coordination at multiple timescales
+* evaluating speech–gesture temporal coordination across speakers and contexts
 * integrating linguistic structure with acoustic and visual signals
-* studying pragmatic and discourse functions in spontaneous speech
-* exploring multimodal representation learning and probing methods
+* developing multimodal representation learning and probing methods
+
+## Annotation Framework
+
+The planned manual annotation framework is documented in:
+
+[`docs/annotation_scheme.md`](docs/annotation_scheme.md)
+
+The annotation scheme is intended to connect automatically extracted multimodal features with linguistically and communicatively motivated labels, including gesture type, speech–gesture temporal relation, and pragmatic or discourse function.
 
 ## Research Motivation
 
