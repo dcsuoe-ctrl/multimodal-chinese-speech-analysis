@@ -190,16 +190,9 @@ multimodal-chinese-speech-analysis/
 ├── docs/
 │   └── annotation_scheme.md
 │
-├── data/
-│   └── README.md
-│
-├── outputs/
-│   └── README.md
-│
 ├── requirements.txt
-├── run_pipeline.py
-└── README.md
-```
+├── README.md
+└── .gitignore
 
 ## Current Status
 
