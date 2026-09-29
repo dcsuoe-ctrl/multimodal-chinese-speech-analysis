@@ -20,34 +20,39 @@ Pragmatic and discourse functions
 
 The central research idea is to move beyond speech as a purely textual or acoustic signal and investigate how linguistic, prosodic, and visual information jointly contribute to meaning in spontaneous communication.
 
-Research Pipeline:
+Research Pipeline
 
-The current computational pipeline follows this general workflow:
+The current computational pipeline follows this workflow:
 
-                    Video
-                      │
-          ┌───────────┴───────────┐
-          │                       │
-        Audio                   Visual
-          │                       │
-          ▼                       ▼
-   Speech Recognition       Hand / Gesture Analysis
-          │                       │
-          ▼                       ▼
-   Speech Segmentation      Gesture Segmentation
-          │                       │
-          ▼                       ▼
-   Prosodic Features        Gesture Features
-          │                       │
-          └───────────┬───────────┘
-                      ▼
-             Temporal Alignment
-                      │
-                      ▼
-          Multimodal Representation
-                      │
-                      ▼
-       Pragmatic / Discourse Analysis
+flowchart TD
+    A[Video] --> B[Audio]
+    A --> C[Visual]
+
+    B --> D[Speech Recognition]
+    D --> E[Speech Segmentation]
+    E --> F[Prosodic Features]
+
+    C --> G[Hand / Gesture Analysis]
+    G --> H[Gesture Event Detection]
+    H --> I[Gesture Features]
+
+    F --> J[Temporal Alignment]
+    I --> J
+
+    J --> K[Aligned Multimodal Features]
+    K --> L[Temporal Coordination Analysis]
+    L --> M[Pragmatic / Discourse Analysis]
+
+The pipeline integrates speech, prosodic, and visual information on a shared temporal axis, providing a computational basis for multimodal analysis of spontaneous communication.
+
+## Current Demonstration
+
+<img width="1389" height="490" alt="image" src="https://github.com/user-attachments/assets/641188e8-f173-43f7-a0af-02e1817ae4e3" />
+<img width="1189" height="490" alt="image" src="https://github.com/user-attachments/assets/fdf09c62-adc1-4f45-a5b2-d4e97686b902" />
+<img width="989" height="490" alt="image" src="https://github.com/user-attachments/assets/47de86b3-6259-4f4d-b284-719ae5c33c0d" />
+<img width="1389" height="590" alt="image" src="https://github.com/user-attachments/assets/701c9c2d-d61f-414c-b2fd-51ed953195cd" />
+
+
 
 Computational Components
 1. Speech Processing
